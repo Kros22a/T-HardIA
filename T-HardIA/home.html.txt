@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Home - T-HardIA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="logo">TH</div>
+  <nav class="menu-desktop">
+    <a href="home.html">Inicio</a>
+    <a href="componentes.html">Componentes</a>
+    <a href="perifericos.html">Periféricos</a>
+    <a href="almacenamiento.html">Almacenamiento</a>
+    <a href="mantenimiento.html">Mantenimiento</a>
+  </nav>
+  <div class="menu-mobile">
+    <span id="hamburger">&#9776;</span>
+    <div id="mobileMenu" class="mobile-menu-content">
+      <div class="user-name">[NombreUsuario]</div>
+      <a href="home.html">Inicio</a>
+      <a href="componentes.html">Componentes</a>
+      <a href="perifericos.html">Periféricos</a>
+      <a href="almacenamiento.html">Almacenamiento</a>
+      <a href="mantenimiento.html">Mantenimiento</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>👋 Bienvenido, <span id="username">[NombreUsuario]</span> a T-HardIA 🚀</h1>
+  <a href="https://www.instagram.com/tato.gp?igsh=ZmcyMTR5MndhcnFx" target="_blank">Contacto Instagram</a>
+</main>
+
+<footer>
+  Creado por T-HardIA © 2025
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+const identity = window.netlifyIdentity;
+identity.on('login', user => {
+  document.getElementById('username').innerText = user.user_metadata.full_name || user.email;
+  document.querySelector('.user-name').innerText = user.user_metadata.full_name || user.email;
+});
+identity.init();
+
+// Menú móvil
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('show');
+});
+</script>
+</body>
+</html>
