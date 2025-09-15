@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>T-HardIA - Inicio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="T-HardIA Logo" class="logo">
+    <nav>
+      <ul>
+        <li id="user-name">Invitado</li>
+        <li><a href="componentes.html">Componentes</a></li>
+        <li><a href="perifericos.html">Periféricos</a></li>
+        <li><a href="almacenamiento.html">Almacenamiento</a></li>
+        <li><a href="mantenimiento.html">Mantenimiento</a></li>
+        <li><a href="login.html" id="logout">Cerrar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Bienvenido a <span class="highlight">T-HardIA</span></h1>
+      <p>Explora el fascinante mundo del hardware, aprende sobre sus componentes, periféricos, almacenamiento y mantenimiento.</p>
+    </section>
+  </main>
+
+  <script type="module">
+    import { supabase } from './supabaseClient.js'
+
+    async function getUser() {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        document.getElementById("user-name").textContent = user.email
+      }
+    }
+
+    async function logout() {
+      await supabase.auth.signOut()
+    }
+
+    document.getElementById("logout").addEventListener("click", logout)
+    getUser()
+  </script>
+</body>
+</html>
