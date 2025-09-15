@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"/><title>T-HardIA - Inicio</title>
+<link rel="stylesheet" href="css/style.css"><link rel="icon" href="images/favicon-TH.png"></head>
+<body>
+<header class="header">
+  <div class="logo-row"><img src="images/logo-TH.png" alt="TH"><div class="site-title">T-HardIA</div></div>
+  <nav class="nav">
+    <a href="home.html">Inicio</a><a href="componentes.html">Componentes</a><a href="perifericos.html">Periféricos</a><a href="almacenamiento.html">Almacenamiento</a><a href="mantenimiento.html">Mantenimiento</a>
+    <div id="user-name" class="user-badge">Ingresar</div>
+  </nav>
+  <div id="hamburger" class="hamburger">&#9776;</div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu">
+  <div style="display:flex;align-items:center;gap:10px;padding:6px 0"><img src="images/logo-TH.png" style="width:40px;height:40px;border-radius:50%"><div id="user-name-mobile" class="user-badge">Ingresar</div></div>
+  <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:8px 0">
+  <a href="home.html" style="display:block;padding:8px 0;color:inherit;text-decoration:none">Inicio</a>
+  <a href="componentes.html" style="display:block;padding:8px 0;color:inherit;text-decoration:none">Componentes</a>
+  <a href="perifericos.html" style="display:block;padding:8px 0;color:inherit;text-decoration:none">Periféricos</a>
+  <a href="almacenamiento.html" style="display:block;padding:8px 0;color:inherit;text-decoration:none">Almacenamiento</a>
+  <a href="mantenimiento.html" style="display:block;padding:8px 0;color:inherit;text-decoration:none">Mantenimiento</a>
+</div>
+
+<main class="container">
+  <div class="hero">
+    <div class="panel">
+      <h1>👋 Bienvenido, <span id="username">Usuario</span> a T-HardIA 🚀</h1>
+      <p>Portal avanzado sobre hardware con asistente IA integrado. Explora guías, comparativas y consejos prácticos.</p>
+      <ul>
+        <li><strong>Aprende:</strong> contenido técnico explicado de forma clara.</li>
+        <li><strong>Decide:</strong> comparativas para elegir mejor.</li>
+        <li><strong>Optimiza:</strong> mantenimiento y prácticas efectivas.</li>
+      </ul>
+      <p style="margin-top:12px"><a href="https://www.instagram.com/tato.gp?igsh=ZmcyMTR5MndhcnFx" target="_blank" style="color:inherit;text-decoration:none;padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#001018;font-weight:700">📩 Contactar al creador</a></p>
+    </div>
+    <div><img src="images/cpu.png" alt="CPU" style="width:100%;border-radius:8px"></div>
+  </div>
+
+  <section class="cards">
+    <article class="card"><h3>Componentes</h3><p>Procesadores, GPUs y placas base: guías prácticas.</p></article>
+    <article class="card"><h3>Periféricos</h3><p>Teclados, ratones y monitores recomendados.</p></article>
+    <article class="card"><h3>Almacenamiento</h3><p>SSD, NVMe y opciones por presupuesto.</p></article>
+  </section>
+
+  <article class="article">
+    <h2>Datos curiosos</h2>
+    <div class="section"><img src="images/gpu.png" alt="GPU"><div><h3>GPU moderna</h3><p>Las GPUs actuales aceleran tareas de IA además de juegos.</p></div></div>
+    <div class="section"><img src="images/ram.png" alt="RAM"><div><h3>DDR5</h3><p>Mayor ancho de banda y eficiencia frente a DDR4.</p></div></div>
+  </article>
+
+  <footer>Creado por <strong>T-HardIA</strong> © 2025</footer>
+</main>
+
+<script src="js/main.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+if(window.netlifyIdentity && netlifyIdentity.currentUser()){
+  const u = netlifyIdentity.currentUser();
+  const name = (u.user_metadata && (u.user_metadata.full_name || u.user_metadata.name)) || u.email || 'Usuario';
+  document.getElementById('username').innerText = name;
+  const el = document.getElementById('user-name'); if(el) el.innerText = name;
+  const elm = document.getElementById('user-name-mobile'); if(elm) elm.innerText = name;
+}
+netlifyIdentity.init();
+</script>
